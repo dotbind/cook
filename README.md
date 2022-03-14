@@ -9,6 +9,7 @@
 # アーキテクチャ
 - Laravel7
 - PHP8(詳細バージョン追記予定)
+- AWS
 - MySQL8(詳細バージョン追記予定)
 - docker-compose(詳細バージョン追記予定)
 
