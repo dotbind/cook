@@ -17,3 +17,6 @@ https://www.figma.com/file/xPHBhAjUiKridt3nT9bLoX/Cook?node-id=0%3A1
 
 # ワイヤー
 https://www.figma.com/file/T22tNhjdDKHqqUaMB3Fap6/Untitled?node-id=0%3A1
+
+# DB設計
+https://docs.google.com/spreadsheets/d/1QHrBpSb--hf1Fp7bd00sciBeCoX23TVAIU7lQ1UxhQc/edit#gid=0
