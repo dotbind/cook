@@ -26,3 +26,5 @@ https://docs.google.com/spreadsheets/d/1QHrBpSb--hf1Fp7bd00sciBeCoX23TVAIU7lQ1Ux
 ## ER図
 https://cacoo.com/diagrams/ri6hajzCAzcnHqWF/D0D97
 
+# インフラ構成
+https://cacoo.com/diagrams/X7KAndMKpB2cZJpt/3A49C
