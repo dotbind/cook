@@ -20,14 +20,18 @@ https://www.figma.com/file/xPHBhAjUiKridt3nT9bLoX/Cook?node-id=0%3A1
 https://www.figma.com/file/T22tNhjdDKHqqUaMB3Fap6/Untitled?node-id=0%3A1
 
 # DB設計
-## エンティティ
-https://docs.google.com/spreadsheets/d/1QHrBpSb--hf1Fp7bd00sciBeCoX23TVAIU7lQ1UxhQc/edit#gid=0
-
 ## ER図
 https://cacoo.com/diagrams/ri6hajzCAzcnHqWF/D0D97
+
+### エンティティ洗い出し（作業用）
+https://docs.google.com/spreadsheets/d/1QHrBpSb--hf1Fp7bd00sciBeCoX23TVAIU7lQ1UxhQc/edit#gid=0
 
 # インフラ構成
 https://cacoo.com/diagrams/X7KAndMKpB2cZJpt/3A49C
 
 # サイトマップ
 https://docs.google.com/spreadsheets/d/1gRwImMnMCAOYCJl9_siKQshyNjXQgZNnLIalDXlg354/edit#gid=0
+
+# 基本設計
+ページに対してのコントローラーとアクション、ビューテンプレートの関係をまとめたもの。
+https://gyazo.com/5730a1a1ea7bc89ef1e0e72fe7b21ea6
