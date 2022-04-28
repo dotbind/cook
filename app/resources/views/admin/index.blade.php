@@ -4,6 +4,12 @@
     
 @section('content')
 {{ Breadcrumbs::render('home') }}
+
+<select id="year" name="year"></select>
+<select id="month" name="month"></select>
+<select id="date" name="date"></select>
+
+<script src="{{ asset('/js/main.js') }}"></script>
 <table>
     <tr><th>id</th><th>年月日</th><th>cook_type</th><th>comment</th><th>like_count</th><th>作成日</th><th>更新日</th><th>Post_image</th></tr>
 @foreach ($posts as $post)
