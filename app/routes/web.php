@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::get('/', [App\Http\Controllers\CookController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\CookController::class, 'index'])->name('index');
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('admin', [App\Http\Controllers\AdminController::class, 'index']);

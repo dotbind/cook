@@ -9,6 +9,8 @@ use App\Models\PostImage;
 class AdminController extends Controller
 {
     public function index(){
-
+        $posts = Post::has('post_images')->get();
+        
+        return view('admin.index', ['posts' => $posts]);
     }
 }
