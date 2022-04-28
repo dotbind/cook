@@ -7,6 +7,23 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>@yield('title')</title>
+    <style>
+        table {
+         width: 100%;
+         text-align: center;
+         border-collapse: collapse;
+         border-spacing: 0;
+        }
+        table th {
+         padding: 10px;
+         background: #e9faf9;
+         border: solid 1px #778ca3;
+        }
+        table td {
+         padding: 10px;
+         border: solid 1px #778ca3;
+        }
+     </style>
 </head>
 <body>
     @yield('content')
