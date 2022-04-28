@@ -47,6 +47,8 @@ https://gyazo.com/5730a1a1ea7bc89ef1e0e72fe7b21ea6
 |  hotfix-*  |  	公開中のもののバグ修正用ブランチ  |  main  |  develop,main  |
 
 ## Issueドリブン開発
+Issueを立てて、ブランチを切って開発するIssueドリブン開発とする
+### 例
 - 1.Webサイトのメニューバーをハンバーガーメニューに変更したい
 - 2. Github上で、１の旨を記載したIssueを立てる
     - マークダウンでコメントを書けるので便利
