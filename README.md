@@ -35,3 +35,28 @@ https://docs.google.com/spreadsheets/d/1gRwImMnMCAOYCJl9_siKQshyNjXQgZNnLIalDXlg
 # 基本設計
 ページに対してのコントローラーとアクション、ビューテンプレートの関係をまとめたもの。
 https://gyazo.com/5730a1a1ea7bc89ef1e0e72fe7b21ea6
+
+# Git運用
+## ブランチの命名規則
+|  ブランチ名  |  役割  |  派生元  |  マージ先  |
+| ---- | ---- | ---- | ---- |
+|  main  |  公開するものを置くブランチ  |    |    |
+|  develop  |  開発中のものを置くブランチ  |  main  |  main  |
+|  release  |  次にリリースするものを置くブランチ  |  develop  |  develop,main  |
+|  feature-#ブランチ番号*  |  新機能開発中に使うブランチ  |  develop  |  develop  |
+|  hotfix-*  |  	公開中のもののバグ修正用ブランチ  |  main  |  develop,main  |
+
+## Issueドリブン開発
+- 1.Issueを起票
+- 2.
+
+- 1.Webサイトのメニューバーをハンバーガーメニューに変更したい
+- 2. Github上で、１の旨を記載したIssueを立てる
+    - マークダウンでコメントを書けるので便利
+    - 画像も載せられるので、こんなメニューにしたい、というイメージ図も載せておける
+- 3.feature/#12_replace_to_hamburger_menuというブランチを作成
+    - Issueを立てるとそのIssueに番号、例えば#12が割り振られるので、それをブランチ名に含める
+- 4.開発進める
+- 5.開発完了
+- 6.Issueに書いた内容のタスクが完了したので、developブランチにマージコミットする
+    - この際、close #12などとコミットメッセージに記述すると、自動的にIssueが閉じられる

@@ -10,9 +10,10 @@ services:
   db:
     image: mysql:8.0
     volumes:
+      - './mysql/etc/my.cnf:/etc/mysql/my.cnf'  #文字コードをutf8mb4にする設定をローカルのmy.cnfに記載、コンテナ内にあるものと同期している
       #- ./mysql:/var/lib/mysql
       #- ./mysql/initdb.d/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./mysql/initdb.d:/docker-entrypoint-initdb.d # コンテナ作成時に実行されるsqlファイルを格納するパスをdocker-entrypoint-initdb.dにマウント
+      #- ./mysql/initdb.d:/docker-entrypoint-initdb.d # コンテナ作成時に実行されるsqlファイルを格納するパスをdocker-entrypoint-initdb.dにマウント
       #- ./mysql/tmp:/var/log/mysql
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     restart: always
