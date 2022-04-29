@@ -23,12 +23,17 @@
     <div class="row">
         <div class="col-4">
             {{$post->date}} {{config('const.'.$post->cook_type)}} 
-            @if($post->post_images != null)
-                @foreach ($post->post_images as $post_image)
-                    <img src="{{$post_image->url}}" alt="" srcset="" width="80">
+                @if(count($post->post_images) > 0)
+                    @foreach ($post->post_images as $post_image)
+                        <img src="{{$post_image->url}}" alt="" srcset="" width="80">
                     @break;
-                @endforeach
-            @endif
+                    @endforeach
+                @else
+                    no image.
+                @endif
+                
+            
+                
         </div>
         <div class="col-6">
             <dl>
