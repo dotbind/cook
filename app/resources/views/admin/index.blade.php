@@ -22,14 +22,23 @@
     @foreach ($posts as $post)
     <div class="row">
         <div class="col-4">
-            {{$post->date}} {{config('const.'.$post->cook_type)}}
+            {{$post->date}} {{config('const.'.$post->cook_type)}} 
+            @if($post->post_images != null)
+                @foreach ($post->post_images as $post_image)
+                    <img src="{{$post_image->url}}" alt="" srcset="" width="80">
+                    @break;
+                @endforeach
+            @endif
+        </div>
+        <div class="col-6">
+            <dl>
+                <dt>Like:</dt><dd>{{$post->like_count}}</dd>
+                <dt>create:</dt><dd>{{$post->created_at}}</dd>
+                <dt>update:</dt><dd>{{$post->update_at}}</dd>
+            </dl>
         </div>
         <div class="col-2">
-            
-        </div>
-        <div class="col-4">
-        </div>
-        <div class="col-2">
+            <a href=""><img src="./images/row_menu.svg" alt="" srcset="" class="text-righ"></a>
         </div>
     </div>
     @endforeach
