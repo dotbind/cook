@@ -19,10 +19,16 @@
     </div>
 </div>
 <div class="container">
+    <table>
+        <tr>
+            <th>年月日<a href="/admin?sort_asc=date">▲</a><a href="/admin?sort_desc=date">▼</a></th><th>画像</th><th>Like<a href="/admin?sort_asc=like_count">▲</a><a href="/admin?sort_desc=like_count">▼</a></th><th>作成日<a href="/admin?sort_asc=created_at">▲</a><a href="/admin?sort_desc=created_at">▼</a></th><th>更新日<a href="/admin?sort_asc=updated_at">▲</a><a href="/admin?sort_desc=updated_at">▼</a></th><th></th>
+        </tr>
     @foreach ($posts as $post)
-    <div class="row">
-        <div class="col-4">
+        <tr>
+            <td>
             {{$post->date}} {{config('const.'.$post->cook_type)}} 
+            </td>
+            <td>
                 @if(count($post->post_images) > 0)
                     @foreach ($post->post_images as $post_image)
                         <img src="{{$post_image->url}}" alt="" srcset="" width="80">
@@ -31,23 +37,26 @@
                 @else
                     no image.
                 @endif
-                
-            
-                
-        </div>
-        <div class="col-6">
-            <dl>
-                <dt>Like:</dt><dd>{{$post->like_count}}</dd>
-                <dt>create:</dt><dd>{{$post->created_at}}</dd>
-                <dt>update:</dt><dd>{{$post->update_at}}</dd>
-            </dl>
-        </div>
-        <div class="col-2">
+            </td>      
+            <td>
+                <div class="col-1">{{$post->like_count}}</div>
+            </td>
+            <td>
+                {{$post->created_at}}
+            </td>
+            <td>
+                {{$post->update_at}}
+            </td>
+            <td>
             <a href=""><img src="./images/row_menu.svg" alt="" srcset="" class="text-righ"></a>
-        </div>
-    </div>
+            </td>
+        </tr>
     @endforeach
-</div>
+    </table>
+{{$posts->appends(['sort' => $sort])->links()}}
+
+---
+
 <table>
     <tr><th>id</th><th>年月日</th><th>cook_type</th><th>comment</th><th>like_count</th><th>作成日</th><th>更新日</th><th>Post_image</th></tr>
 @foreach ($posts as $post)

@@ -10,10 +10,26 @@ use App\Consts;
 
 class AdminController extends Controller
 {
-    public function index(){
-        $posts = Post::all();
-        $test = (config('const.1'));
-        dump($test);
-        return view('admin.index', ['posts' => $posts]);
+    public function index(Request $request){
+        if(!$request->sort_asc && !$request->sort_desc) {
+            $sort = 'id';
+            $order = 'desc';
+        }elseif(isset($request->sort_asc) && isset($request->sort_asc)){
+            $sort = 'id';
+            $order = 'desc';
+        }
+        if(isset($request->sort_asc)) {
+            $sort = $request->sort_asc;
+            $order = 'asc';
+        }
+        if(isset($request->sort_desc)) {
+            $sort = $request->sort_desc;
+            $order = 'desc';
+        }
+       
+        
+        $posts = Post::orderBy($sort, $order)->paginate(20);
+        $param = ['posts' => $posts, 'sort' => $sort];
+        return view('admin.index', $param);
     }
 }
