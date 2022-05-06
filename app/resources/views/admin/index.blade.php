@@ -3,17 +3,26 @@
 @section('title','トップページ')
     
 @section('content')
+<script src="{{ asset('/js/date_selectbox.js') }}"></script>
 {{ Breadcrumbs::render('home') }}
 <div class="container">
     <div class="row">
-        <div class="col-10">
-            <form action="/admin/index" method="POST">
+        <div class="col-11">
+            <form action="/admin/" method="GET" novalidate>
                 @csrf
-            <input type="date" name="date" id="date">
+            {{-- <input type="date" name="date" id="date"> --}}
+            <select id="year" name="year">
+            </select>
+            / 
+            <select id="month" name="month">
+            </select>
+            /
+            <select id="day" name="day">
+            </select>
             <input type="submit" value="検索">
             </form>
         </div>
-        <div class="col-2">
+        <div class="col-1">
             <img src="./images/add_button.svg" alt="" srcset="" class="text-righ">
         </div>
     </div>
@@ -55,24 +64,6 @@
     </table>
 {{$posts->appends(['sort' => $sort])->links()}}
 
----
 
-<table>
-    <tr><th>id</th><th>年月日</th><th>cook_type</th><th>comment</th><th>like_count</th><th>作成日</th><th>更新日</th><th>Post_image</th></tr>
-@foreach ($posts as $post)
-    <tr>
-        <td>{{$post->id}}</td><td>{{$post->date}}</td><td>{{$post->cook_type}}</td><td>{{$post->comment}}</td><td>{{$post->like_count}}</td><td>{{$post->created_at}}</td><td>{{$post->updated_at}}</td>
-        <td>
-            @if($post->post_images != null)
-            <table>
-                @foreach ($post->post_images as $post_image)
-                    <tr><td>{{$post_image->id}}</td><td>{{$post_image->url}}</td></tr>    
-                @endforeach
-            </table>
-            @endif
-        </td>
-    </tr>
-@endforeach
-</table>
     
 @endsection
