@@ -43,7 +43,7 @@ https://gyazo.com/5730a1a1ea7bc89ef1e0e72fe7b21ea6
 |  main  |  公開するものを置くブランチ  |    |    |
 |  develop  |  開発中のものを置くブランチ  |  main  |  main  |
 |  release  |  次にリリースするものを置くブランチ  |  develop  |  develop,main  |
-|  feature-#ブランチ番号*  |  新機能開発中に使うブランチ  |  develop  |  develop  |
+|  feature-#イシュー番号*  |  新機能開発中に使うブランチ  |  develop  |  develop  |
 |  hotfix-*  |  	公開中のもののバグ修正用ブランチ  |  main  |  develop,main  |
 
 ## Issueドリブン開発
