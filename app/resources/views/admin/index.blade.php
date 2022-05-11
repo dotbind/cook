@@ -62,7 +62,7 @@
         </tr>
     @endforeach
     </table>
-{{$posts->appends(['sort' => $sort])->links()}}
+{{$posts->appends(['sort' => $sort, 'order' => $order,])->links()}}
 
 
     
