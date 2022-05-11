@@ -57,12 +57,13 @@
                 {{$post->update_at}}
             </td>
             <td>
-            <a href=""><img src="./images/row_menu.svg" alt="" srcset="" class="text-righ"></a>
+            <a href="edit/{{$post->id}}">編集</a>
+            <a href="delete/{{$post->id}}">削除</a>
             </td>
         </tr>
     @endforeach
     </table>
-{{$posts->appends(['sort' => $sort])->links()}}
+{{$posts->appends(['sort' => $sort, 'order' => $order,])->links()}}
 
 
     
