@@ -13,7 +13,7 @@
 - MySQL8(詳細バージョン追記予定)
 - docker-compose(詳細バージョン追記予定)
 
-# 画面設計
+# 画面遷移
 https://www.figma.com/file/xPHBhAjUiKridt3nT9bLoX/Cook?node-id=0%3A1
 
 # ワイヤー
