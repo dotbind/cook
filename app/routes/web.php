@@ -23,4 +23,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('admin', [App\Http\Controllers\AdminController::class, 'index']);
-Route::post('admin', [App\Http\Controllers\AdminController::class, 'delete']);
+Route::post('admin', [App\Http\Controllers\AdminController::class, 'delete'])->name('admin.delete');

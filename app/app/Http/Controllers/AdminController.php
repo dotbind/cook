@@ -76,7 +76,7 @@ class AdminController extends Controller
     }
 
     public function delete(Request $request){
-        Post::find($request->id)->delete();
+        Post::find($request->delete_post_id)->delete();
         return redirect('/admin/');
     }
 }

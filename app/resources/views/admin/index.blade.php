@@ -57,12 +57,17 @@
             </td>
             <td>
             <a href="edit/{{$post->id}}">編集</a>
-            <a href="delete/{{$post->id}}">削除</a>
+            <button type="button" onclick="deletePost({{ $post->id }})">削除</button>
             </td>
         </tr>
     @endforeach
     </table>
 {{$posts->appends(['sort' => $sort, 'order' => $order,])->links()}}
+@include('components.modal')
+<form method="post" id="delete_form">
+    @csrf
+    <input type="hidden" name="delete_post_id" id="delete_post_id" value="" />
+</form>
 
 
     
