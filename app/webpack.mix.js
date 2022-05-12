@@ -11,11 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
-//mix.js('resources/js/app.js', 'public/js')
 mix.js('public/js/date_selectbox.js', 'public/js')
 mix.js('public/js/modal.js', 'public/js')
 mix.scripts([
-  //  'public/js/app.js',
     'public/js/date_selectbox.js',
     'public/js/modal.js',
 ], 'public/js/all.js')

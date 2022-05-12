@@ -16,10 +16,6 @@ class AdminController extends Controller
             $sort = 'id';
             $order = 'desc';
         }
-        // elseif(isset($request->sort_asc) && isset($request->sort_asc)){
-        //     $sort = 'id';
-        //     $order = 'desc';
-        // }
         if(isset($request->sort_asc)) {
             $sort = $request->sort_asc;
             $order = 'asc';
@@ -77,5 +73,10 @@ class AdminController extends Controller
         
         $param = ['posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
         return view('admin.index', $param);
+    }
+
+    public function delete(Request $request){
+        Post::find($request->id)->delete();
+        return redirect('/admin/');
     }
 }
