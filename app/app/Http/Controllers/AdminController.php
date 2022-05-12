@@ -74,4 +74,9 @@ class AdminController extends Controller
         $param = ['posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
         return view('admin.index', $param);
     }
+
+    public function delete(Request $request){
+        Post::find($request->id)->delete();
+        return redirect('/admin/');
+    }
 }
