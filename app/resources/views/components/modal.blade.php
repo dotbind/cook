@@ -5,17 +5,16 @@
 　　　　　　　　<p>削除しますか？</p>
 　　　　　　　　<span class="modalClose">×</span>
 　　　　　　</div>
-　　　　　　<div  type="button" onclick="deleteTodo({{ $todo->id }})" class="modal-body">
                 <button>はい</button>
                 <button>いいえ</button>
 　　　　　　</div>
 　　　　</div>
 　　</div>
 <script>
-    function deleteTodo(todoId) {
-        document.querySelector("#select_todo_id").value = todoId;
-        document.querySelector("#todo_form").action = "{{ route('admin.delete') }}";
-        document.querySelector("#todo_form").submit();
+    function deletePost(postId) {
+        document.querySelector("#delete_post_id").value = postId;
+        document.querySelector("#delete_form").action = "{{ route('admin.delete') }}";
+        document.querySelector("#delete_form").submit();
     }
 //---- ここまで追加する ----
 </script>
