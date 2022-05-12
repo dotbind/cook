@@ -3,7 +3,6 @@
 @section('title','トップページ')
     
 @section('content')
-<script src="{{ asset('/js/date_selectbox.js') }}"></script>
 {{ Breadcrumbs::render('home') }}
 <div class="container">
     <div class="row">
