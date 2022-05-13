@@ -22,7 +22,7 @@
             </form>
         </div>
         <div class="col-1">
-            <img src="./images/add_button.svg" alt="" srcset="" class="text-righ">
+            <a href="/admin/add"><img src="./images/add_button.svg" alt="" srcset="" class="text-righ"></a>
         </div>
     </div>
 </div>
