@@ -7,7 +7,6 @@
   </div>
   <div class="black-background js-popup-close"></div>
 </div>
-<button class="js-popup-open">Show Popup</button>
 
 <script>
 function deletePost() {
