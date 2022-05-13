@@ -1,10 +1,11 @@
 <div class="popup" id="js-popup">
-    <div class="popup-inner">
-      <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-    </div>
-    <div class="black-background" id="js-black-bg"></div>
+  <div class="popup-inner">
+    <div class="close-btn js-popup-close"><i class="fas fa-times"></i></div>
   </div>
-  <button id="js-show-popup">Show Popup</button>
+  <div class="black-background js-popup-close"></div>
+</div>
+<button class="js-popup-open">Show Popup</button>
+
 <script>
     function deletePost(postId) {
         document.querySelector("#delete_post_id").value = postId;
@@ -13,23 +14,24 @@
     }
 </script>
 <script>
-    function popupImage() {
-  var popup = document.getElementById('js-popup');
-  if(!popup) return;
+  function popupImage() {
+  
+    const modal_wrap = document.getElementById('js-popup');
+    const popup = document.querySelectorAll('.js-popup-open');
+    
+    const popup_close = document.querySelectorAll('.js-popup-close');
 
-  var blackBg = document.getElementById('js-black-bg');
-  var closeBtn = document.getElementById('js-close-btn');
-  var showBtn = document.getElementById('js-show-popup');
+    popup.forEach(function(element){
+      element.addEventListener('click', function() {
+        modal_wrap.classList.add('is-show');
+      });
+    });   
 
-  closePopUp(blackBg);
-  closePopUp(closeBtn);
-  closePopUp(showBtn);
-  function closePopUp(elem) {
-    if(!elem) return;
-    elem.addEventListener('click', function() {
-      popup.classList.toggle('is-show');
-    });
+    popup_close.forEach(function(element){
+      element.addEventListener('click', function() {
+        modal_wrap.classList.remove('is-show');
+      });
+    });   
   }
-}
 popupImage();
 </script>
