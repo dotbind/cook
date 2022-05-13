@@ -57,8 +57,7 @@
             </td>
             <td>
             <a href="edit/{{$post->id}}">編集</a>
-            {{-- <button class="modalOpen" type="button" onclick="deletePost({{ $post->id }})">削除</button> --}}
-            {{-- <button class="js-popup" type="button">削除</button> --}}
+            <button class="js-popup-open" type="button" data-delete-id="{{$post->id}}">削除</button>
             </td>
         </tr>
     @endforeach
