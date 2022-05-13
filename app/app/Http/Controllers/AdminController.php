@@ -79,4 +79,13 @@ class AdminController extends Controller
         Post::find($request->delete_post_id)->delete();
         return redirect('/admin/');
     }
+
+    public function add(Request $request){
+        return view('admin.add');
+    }
+
+    public function create(Request $request){
+        dd($request->file('file'));
+        //$request->file('file')->store('test');
+    }
 }

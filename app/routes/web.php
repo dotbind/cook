@@ -24,3 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('admin', [App\Http\Controllers\AdminController::class, 'index']);
 Route::post('admin', [App\Http\Controllers\AdminController::class, 'delete'])->name('admin.delete');
+
+Route::get('admin/add', [App\Http\Controllers\AdminController::class, 'add']);
+Route::post('admin/create', [App\Http\Controllers\AdminController::class, 'create']);
