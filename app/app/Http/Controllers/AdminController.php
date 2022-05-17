@@ -81,11 +81,17 @@ class AdminController extends Controller
     }
 
     public function add(Request $request){
-        return view('admin.add');
+        $cook_type = config('const');
+        //dd($cook_type);
+        return view('admin.add', compact('cook_type'));
     }
 
     public function create(Request $request){
-        dd($request->file('file'));
-        //$request->file('file')->store('test');
+        $files = $request->file('images');
+        foreach($files as $file){
+            $file_name = $file->getClientOriginalName();
+            $file->storeAS('names',$file_name);
+        }
+    return redirect('/admin/add');
     }
 }
