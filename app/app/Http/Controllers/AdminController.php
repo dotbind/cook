@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\PostImage;
+use Illuminate\Support\Facades\Auth;
 
 use App\Consts;
 
 class AdminController extends Controller
 {
+   
     public function index(Request $request){
         //並び順の指定が無い時はidの降順とする
         if(!$request->sort_asc && !$request->sort_desc) {
@@ -71,7 +73,7 @@ class AdminController extends Controller
             $posts = Post::orderBy($sort, $order)->paginate(20);
         }
         
-        $param = ['posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
+        $param = ['user' => $user, 'posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
         return view('admin.index', $param);
     }
 

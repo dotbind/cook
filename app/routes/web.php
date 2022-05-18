@@ -22,8 +22,11 @@ Route::get('/', [App\Http\Controllers\CookController::class, 'index'])->name('in
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('admin', [App\Http\Controllers\AdminController::class, 'index']);
+Route::get('admin', [App\Http\Controllers\AdminController::class, 'index'])->middleware('auth');
 Route::post('admin', [App\Http\Controllers\AdminController::class, 'delete'])->name('admin.delete');
 
-Route::get('admin/add', [App\Http\Controllers\AdminController::class, 'add']);
+Route::get('admin/add', [App\Http\Controllers\AdminController::class, 'add'])->middleware('auth');;
 Route::post('admin/create', [App\Http\Controllers\AdminController::class, 'create']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
