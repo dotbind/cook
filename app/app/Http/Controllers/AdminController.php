@@ -87,11 +87,16 @@ class AdminController extends Controller
     }
 
     public function create(Request $request){
+        $post = new Post;
+        $form = $request->all();
+        unset($form['_token']);
+        $post
         $files = $request->file('images');
         foreach($files as $file){
             $file_name = $file->getClientOriginalName();
             $file->storeAS('names',$file_name);
         }
+        
     return redirect('/admin/add');
     }
 }
