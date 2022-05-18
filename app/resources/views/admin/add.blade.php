@@ -19,7 +19,7 @@
     </select>
     <select name="cook_type">
     @foreach($cook_type as $key => $value)
-        <option value="$key">{{$value}}</option>
+        <option value="{{$key}}">{{$value}}</option>
     @endforeach
     </select>
     <textarea name="comment">

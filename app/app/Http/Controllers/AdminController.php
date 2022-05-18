@@ -84,7 +84,6 @@ class AdminController extends Controller
 
     public function add(Request $request){
         $cook_type = config('const');
-        //dd($cook_type);
         return view('admin.add', compact('cook_type'));
     }
 
@@ -92,11 +91,34 @@ class AdminController extends Controller
         $post = new Post;
         $form = $request->all();
         unset($form['_token']);
-        $post
-        $files = $request->file('images');
-        foreach($files as $file){
-            $file_name = $file->getClientOriginalName();
-            $file->storeAS('names',$file_name);
+        $post->user_id = Auth::id();
+        $date = $request->year . '/' . $request->month . '/' . $request->day;
+        $post->date = $date;
+        $post->cook_type = $request->cook_type;
+        $post->comment = $request->comment;
+        $post->like_count = 0;
+        $post->save();
+        
+        if($request->file('images') !== null) {
+            $last_insert_post_id = $post->id;
+            if(is_array($request->file('images'))){
+                $files = $request->file('images');
+                foreach($files as $file){
+                    $post_image = new PostImage;
+                    $file_name = $file->getClientOriginalName();
+                    $file->storeAS('names',$file_name);
+                    $post_image->post_id = $last_insert_post_id;    
+                    $post_image->url = $file_name;
+                    $post_image->save();
+                }
+            }else{
+                $post_image = new PostImage;
+                $file_name = $file->getClientOriginalName();
+                $file->storeAS('names',$file_name);
+                $post_image->post_id = $last_insert_post_id;    
+                $post_image->url = $file_name;
+                $post_image->save();
+            }
         }
         
     return redirect('/admin/add');
