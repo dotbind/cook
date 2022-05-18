@@ -3,6 +3,7 @@
 @section('title','トップページ')
     
 @section('content')
+
 {{ Breadcrumbs::render('home') }}
 <div class="container">
     <div class="row">
