@@ -73,7 +73,7 @@ class AdminController extends Controller
             $posts = Post::orderBy($sort, $order)->paginate(20);
         }
         
-        $param = ['user' => $user, 'posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
+        $param = ['posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
         return view('admin.index', $param);
     }
 
@@ -98,11 +98,11 @@ class AdminController extends Controller
         $post->comment = $request->comment;
         $post->like_count = 0;
         $post->save();
-        
-        if($request->file('images') !== null) {
+        dump($request->file('file'));
+        if($request->file('file') !== null) {
             $last_insert_post_id = $post->id;
-            if(is_array($request->file('images'))){
-                $files = $request->file('images');
+            if(is_array($request->file('file'))){
+                $files = $request->file('file');
                 foreach($files as $file){
                     $post_image = new PostImage;
                     $file_name = $file->getClientOriginalName();

@@ -25,7 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('admin', [App\Http\Controllers\AdminController::class, 'index'])->middleware('auth');
 Route::post('admin', [App\Http\Controllers\AdminController::class, 'delete'])->name('admin.delete');
 
-Route::get('admin/add', [App\Http\Controllers\AdminController::class, 'add'])->middleware('auth');;
+Route::get('admin/add', [App\Http\Controllers\AdminController::class, 'add'])->middleware('auth')->name('add');
 Route::post('admin/create', [App\Http\Controllers\AdminController::class, 'create']);
 Auth::routes();
 
