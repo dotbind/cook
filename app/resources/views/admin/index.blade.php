@@ -57,7 +57,7 @@
                 {{$post->update_at}}
             </td>
             <td>
-            <a href="edit/{{$post->id}}">編集</a>
+            <a href="admin/edit/{{$post->id}}">編集</a>
             <button class="js-popup-open" type="button" data-delete-id="{{$post->id}}">削除</button>
             </td>
         </tr>

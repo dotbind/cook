@@ -98,7 +98,6 @@ class AdminController extends Controller
         $post->comment = $request->comment;
         $post->like_count = 0;
         $post->save();
-        dump($request->file('file'));
         if($request->file('file') !== null) {
             $last_insert_post_id = $post->id;
             if(is_array($request->file('file'))){
@@ -122,5 +121,11 @@ class AdminController extends Controller
         }
         
     return redirect('/admin/add');
+    }
+
+    public function edit(Request $request,$id){
+        dump($id);
+        $cook_type = config('const');
+        return view('admin.edit', compact('cook_type'));
     }
 }
