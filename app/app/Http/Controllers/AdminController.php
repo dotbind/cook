@@ -73,7 +73,7 @@ class AdminController extends Controller
             $posts = Post::orderBy($sort, $order)->paginate(20);
         }
         
-        $param = ['user' => $user, 'posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
+        $param = ['posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
         return view('admin.index', $param);
     }
 

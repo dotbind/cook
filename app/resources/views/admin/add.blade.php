@@ -3,6 +3,7 @@
 @section('title','新規作成')
     
 @section('content')
+{{ Breadcrumbs::render('add') }}
 <div class="container">
 <form action="/admin/create" method="POST" enctype="multipart/form-data">
     @csrf
