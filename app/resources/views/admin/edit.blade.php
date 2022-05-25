@@ -5,6 +5,12 @@
 @section('content')
 {{-- {{ Breadcrumbs::render('edit') }} --}}
 <div class="container">
+@if(count($post_images) > 0)
+@foreach ($post_images as $image)
+<img src="./{{$image->url}}" alt="">
+@endforeach
+    
+@endif
 <form action="/admin/create" method="POST" enctype="multipart/form-data">
     @csrf
 
@@ -24,6 +30,7 @@
     @endforeach
     </select>
     <textarea name="comment">
+        {{$posts->comment}}
     </textarea>
 
     <button type="submit">保存</button>

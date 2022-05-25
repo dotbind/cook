@@ -124,8 +124,17 @@ class AdminController extends Controller
     }
 
     public function edit(Request $request,$id){
-        dump($id);
+        $posts = Post::find($id);
+        $post_images = PostImage::where('post_id', $id)->get();
+        //dump($posts['comment']);
+        
+        var_dump(is_array($post_images));
+        var_dump(is_null($post_images));
+        var_dump(count($post_images));
+
+        
         $cook_type = config('const');
-        return view('admin.edit', compact('cook_type'));
+        $param = ['posts' => $posts, 'post_images' => $post_images, 'cook_type' => $cook_type];
+        return view('admin.edit', $param);
     }
 }
