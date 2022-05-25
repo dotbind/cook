@@ -29,4 +29,8 @@ Route::get('admin/add', [App\Http\Controllers\AdminController::class, 'add'])->m
 Route::post('admin/create', [App\Http\Controllers\AdminController::class, 'create']);
 Auth::routes();
 
+Route::get('admin/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->middleware('auth')->name('edit');
+Route::post('admin/put', [App\Http\Controllers\AdminController::class, 'put']);
+Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
