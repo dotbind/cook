@@ -94,8 +94,7 @@ class AdminController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $post->user_id = Auth::id();
-        $date = $request->year . '/' . $request->month . '/' . $request->day;
-        $post->date = $date;
+        $post->date = $request->date;
         $post->cook_type = $request->cook_type;
         $post->comment = $request->comment;
         $post->like_count = 0;
@@ -134,5 +133,5 @@ class AdminController extends Controller
         return view('admin.edit', $param);
     }
 
-    
+
 }
