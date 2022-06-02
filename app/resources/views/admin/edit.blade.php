@@ -11,7 +11,7 @@
 @endforeach
     
 @endif
-<form action="/admin/create" method="POST" enctype="multipart/form-data">
+<form action="/admin/put" method="POST" enctype="multipart/form-data">
     @csrf
 
 	<input type="file" id="file" name="file[]" class="form-control" multiple>
@@ -32,7 +32,7 @@
     <textarea name="comment">
         {{$posts->comment}}
     </textarea>
-
+    <input type="hidden" value="{{$id}}">
     <button type="submit">保存</button>
 </form>
 </div>
