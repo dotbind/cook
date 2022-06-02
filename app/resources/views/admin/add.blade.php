@@ -10,14 +10,7 @@
 
 	<input type="file" id="file" name="file[]" class="form-control" multiple>
 
-    <select id="year" name="year">
-    </select>
-    / 
-    <select id="month" name="month">
-    </select>
-    /
-    <select id="day" name="day">
-    </select>
+    <input type="date" id="date" name="date">
     <select name="cook_type">
     @foreach($cook_type as $key => $value)
         <option value="{{$key}}">{{$value}}</option>

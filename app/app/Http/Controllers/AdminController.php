@@ -94,8 +94,7 @@ class AdminController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $post->user_id = Auth::id();
-        $date = $request->year . '/' . $request->month . '/' . $request->day;
-        $post->date = $date;
+        $post->date = $request->date;
         $post->cook_type = $request->cook_type;
         $post->comment = $request->comment;
         $post->like_count = 0;
@@ -122,7 +121,7 @@ class AdminController extends Controller
             }
         }
         
-    return redirect('/admin/add');
+    return redirect('/admin/');
     }
 
     public function edit(Request $request,$id){
@@ -133,4 +132,6 @@ class AdminController extends Controller
         $param = ['id' => $id, 'posts' => $posts, 'post_images' => $post_images, 'cook_type' => $cook_type];
         return view('admin.edit', $param);
     }
+
+
 }
