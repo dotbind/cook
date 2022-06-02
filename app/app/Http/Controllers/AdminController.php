@@ -28,52 +28,54 @@ class AdminController extends Controller
         }
         
         //年月日の検索条件があるとき
-        if(isset($request->year)){
-            //Viewでのselectタグ用
-            $year = $request->year;
-            $month = $request->month;
-            $day = $request->day;
+        // if(isset($request->year)){
+        //     //Viewでのselectタグ用
+        //     $year = $request->year;
+        //     $month = $request->month;
+        //     $day = $request->day;
 
-            //year、month、day、いずれも検索条件が設定されている
-            if($request->year !== "--" && $request->month !== "--" && $request->day !== "--"){
-                $posts = Post::whereYear('date', $request->year)->whereMonth('date', $request->month)->whereDay('date', $request->day)->orderBy($sort, $order)->paginate(20);   
-            }
-            //いずれも設定されていない
-            else if($request->year === "--" && $request->month === "--" && $request->day === "--"){
-                $posts = Post::orderBy($sort, $order)->paginate(20);    
-            }
+        //     //year、month、day、いずれも検索条件が設定されている
+        //     if($request->year !== "--" && $request->month !== "--" && $request->day !== "--"){
+        //         $posts = Post::whereYear('date', $request->year)->whereMonth('date', $request->month)->whereDay('date', $request->day)->orderBy($sort, $order)->paginate(20);   
+        //     }
+        //     //いずれも設定されていない
+        //     else if($request->year === "--" && $request->month === "--" && $request->day === "--"){
+        //         $posts = Post::orderBy($sort, $order)->paginate(20);    
+        //     }
             
-            else if($request->year === "--" && $request->month !== "--" && $request->day !== "--"){
-                $posts = Post::whereMonth('date', $request->month)->whereDay('date', $request->day)->orderBy($sort, $order)->paginate(20);
-            }
-            else if($request->year === "--" && $request->month === "--" && $request->day !== "--"){
-                $posts = Post::whereDay('date', $request->day)->orderBy($sort, $order)->paginate(20);
-            }
-            else if($request->year === "--" && $request->month !== "--" && $request->day === "--"){
-                $posts = Post::whereMonth('date', $request->month)->orderBy($sort, $order)->paginate(20);
-            }
+        //     else if($request->year === "--" && $request->month !== "--" && $request->day !== "--"){
+        //         $posts = Post::whereMonth('date', $request->month)->whereDay('date', $request->day)->orderBy($sort, $order)->paginate(20);
+        //     }
+        //     else if($request->year === "--" && $request->month === "--" && $request->day !== "--"){
+        //         $posts = Post::whereDay('date', $request->day)->orderBy($sort, $order)->paginate(20);
+        //     }
+        //     else if($request->year === "--" && $request->month !== "--" && $request->day === "--"){
+        //         $posts = Post::whereMonth('date', $request->month)->orderBy($sort, $order)->paginate(20);
+        //     }
 
-            else if($request->year !== "--" && $request->month === "--" && $request->day !== "--"){
-                $posts = Post::whereYear('date', $request->year)->whereDay('date', $request->day)->orderBy($sort, $order)->paginate(20);
-            }
-            else if($request->year !== "--" && $request->month === "--" && $request->day === "--"){
-                $posts = Post::whereYear('date', $request->year)->orderBy($sort, $order)->paginate(20);
-            }
-            else if($request->year !== "--" && $request->month !== "--" && $request->day === "--"){
-                $posts = Post::whereYear('date', $request->year)->whereMonth('date', $request->month)->orderBy($sort, $order)->paginate(20);
-            }else{
-                $posts = Post::orderBy($sort, $order)->paginate(20);
-            }
-        }else{
-            //Viewでのselected用
-            $year = "";
-            $month = "";
-            $day = "";
+        //     else if($request->year !== "--" && $request->month === "--" && $request->day !== "--"){
+        //         $posts = Post::whereYear('date', $request->year)->whereDay('date', $request->day)->orderBy($sort, $order)->paginate(20);
+        //     }
+        //     else if($request->year !== "--" && $request->month === "--" && $request->day === "--"){
+        //         $posts = Post::whereYear('date', $request->year)->orderBy($sort, $order)->paginate(20);
+        //     }
+        //     else if($request->year !== "--" && $request->month !== "--" && $request->day === "--"){
+        //         $posts = Post::whereYear('date', $request->year)->whereMonth('date', $request->month)->orderBy($sort, $order)->paginate(20);
+        //     }else{
+        //         $posts = Post::orderBy($sort, $order)->paginate(20);
+        //     }
+        // }else{
+        //     //Viewでのselected用
+        //     $year = "";
+        //     $month = "";
+        //     $day = "";
 
-            $posts = Post::orderBy($sort, $order)->paginate(20);
-        }
-        
-        $param = ['posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
+        //     $posts = Post::orderBy($sort, $order)->paginate(20);
+        // }
+
+        $posts = Post::orderBy($sort, $order)->paginate(20);
+        $param = ['posts' => $posts, 'sort' => $sort, 'order' => $order];
+        //$param = ['posts' => $posts, 'sort' => $sort, 'order' => $order, 'year' => $year, 'month' => $month, 'day' => $day];
         return view('admin.index', $param);
     }
 

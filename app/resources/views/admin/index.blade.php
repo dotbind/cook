@@ -7,10 +7,9 @@
 {{ Breadcrumbs::render('home') }}
 <div class="container">
     <div class="row">
-        <div class="col-11">
+        {{-- <div class="col-11">
             <form action="/admin/" method="GET" novalidate>
                 @csrf
-            {{-- <input type="date" name="date" id="date"> --}}
             <select id="year" name="year">
             </select>
             / 
@@ -21,7 +20,7 @@
             </select>
             <input type="submit" value="検索">
             </form>
-        </div>
+        </div> --}}
         <div class="col-1">
             <a href="/admin/add"><img src="./images/add_button.svg" alt="" srcset="" class="text-righ"></a>
         </div>
