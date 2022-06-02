@@ -133,4 +133,6 @@ class AdminController extends Controller
         $param = ['id' => $id, 'posts' => $posts, 'post_images' => $post_images, 'cook_type' => $cook_type];
         return view('admin.edit', $param);
     }
+
+    
 }
