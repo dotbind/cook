@@ -29,7 +29,12 @@
 <div class="container">
     <table>
         <tr>
-            <th>年月日<a href="/admin?sort_asc=date">▲</a><a href="/admin?sort_desc=date">▼</a></th><th>画像</th><th>Like<a href="/admin?sort_asc=like_count">▲</a><a href="/admin?sort_desc=like_count">▼</a></th><th>作成日<a href="/admin?sort_asc=created_at">▲</a><a href="/admin?sort_desc=created_at">▼</a></th><th>更新日<a href="/admin?sort_asc=updated_at">▲</a><a href="/admin?sort_desc=updated_at">▼</a></th><th></th>
+            <th>年月日<a href="/admin?sort_asc=date">▲</a><a href="/admin?sort_desc=date">▼</a></th>
+            <th>画像</th>
+            <th>Like<a href="/admin?sort_asc=like_count">▲</a><a href="/admin?sort_desc=like_count">▼</a></th>
+            <th>コメント</th>
+            <th>作成日<a href="/admin?sort_asc=created_at">▲</a><a href="/admin?sort_desc=created_at">▼</a></th>
+            <th>更新日<a href="/admin?sort_asc=updated_at">▲</a><a href="/admin?sort_desc=updated_at">▼</a></th><th></th>
         </tr>
     @foreach ($posts as $post)
         <tr>
@@ -47,7 +52,10 @@
                 @endif
             </td>      
             <td>
-                <div class="col-1">{{$post->like_count}}</div>
+                {{$post->like_count}}
+            </td>
+            <td>
+                {{$post->comment}}
             </td>
             <td>
                 {{$post->created_at}}

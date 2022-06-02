@@ -121,7 +121,7 @@ class AdminController extends Controller
             }
         }
         
-    return redirect('/admin/add');
+    return redirect('/admin/');
     }
 
     public function edit(Request $request,$id){
