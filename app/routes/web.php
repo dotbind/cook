@@ -31,6 +31,6 @@ Route::post('admin/create', [App\Http\Controllers\AdminController::class, 'creat
 
 Route::get('admin/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->middleware('auth')->name('edit');
 Route::post('admin/update', [App\Http\Controllers\AdminController::class, 'update']);
-//Auth::routes();
+Route::post('admin/delete_img', [App\Http\Controllers\AdminController::class, 'delete_img'])->name('admin.delete_img');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
