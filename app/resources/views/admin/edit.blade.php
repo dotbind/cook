@@ -11,7 +11,7 @@
 @endforeach
     
 @endif
-<form action="/admin/put" method="POST" enctype="multipart/form-data">
+<form action="/admin/update" method="POST" enctype="multipart/form-data">
     @csrf
 
 	<input type="file" id="file" name="file[]" class="form-control" multiple>
@@ -19,13 +19,17 @@
     <input type="date" id="date" name="date" value="{{$posts->date}}">
     <select name="cook_type">
     @foreach($cook_type as $key => $value)
+    @if ($posts->cook_type == $key)
+    <option value="{{$key}}" selected>{{$value}}</option>
+    @else
         <option value="{{$key}}">{{$value}}</option>
+    @endif
     @endforeach
     </select>
     <textarea name="comment">
         {{$posts->comment}}
     </textarea>
-    <input type="hidden" value="{{$id}}">
+    <input type="hidden" name="id" value="{{$id}}">
     <button type="submit">保存</button>
 </form>
 </div>

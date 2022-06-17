@@ -44,7 +44,7 @@
             <td>
                 @if(count($post->post_images) > 0)
                     @foreach ($post->post_images as $post_image)
-                        <img src="{{$post_image->url}}" alt="" srcset="" width="80">
+                        <img src="/storage/images/{{$post_image->url}}" alt="" srcset="" width="80">
                     @break;
                     @endforeach
                 @else

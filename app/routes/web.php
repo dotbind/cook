@@ -27,10 +27,10 @@ Route::post('admin', [App\Http\Controllers\AdminController::class, 'delete'])->n
 
 Route::get('admin/add', [App\Http\Controllers\AdminController::class, 'add'])->middleware('auth')->name('add');
 Route::post('admin/create', [App\Http\Controllers\AdminController::class, 'create']);
-Auth::routes();
+//Auth::routes();
 
 Route::get('admin/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->middleware('auth')->name('edit');
-Route::post('admin/put', [App\Http\Controllers\AdminController::class, 'put']);
-Auth::routes();
+Route::post('admin/update', [App\Http\Controllers\AdminController::class, 'update']);
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
