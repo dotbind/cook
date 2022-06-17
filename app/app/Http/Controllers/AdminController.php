@@ -91,30 +91,33 @@ class AdminController extends Controller
 
     public function create(Request $request){
         $post = new Post;
-        $form = $request->all();
-        unset($form['_token']);
+        
+        //postsテーブルへの保存
         $post->user_id = Auth::id();
         $post->date = $request->date;
         $post->cook_type = $request->cook_type;
         $post->comment = $request->comment;
         $post->like_count = 0;
         $post->save();
+
+        //post_imagesテーブルへの保温
         if($request->file('file') !== null) {
             $last_insert_post_id = $post->id;
+            //添付画像が2枚以上だったら1枚ずつ保存する
             if(is_array($request->file('file'))){
                 $files = $request->file('file');
                 foreach($files as $file){
                     $post_image = new PostImage;
                     $file_name = $file->getClientOriginalName();
-                    $file->storeAS('names',$file_name);
+                    $file->storeAS('public/images',$file_name);
                     $post_image->post_id = $last_insert_post_id;    
                     $post_image->url = $file_name;
                     $post_image->save();
                 }
-            }else{
+            }else{  //添付画像が1枚だけだったら1枚保存する
                 $post_image = new PostImage;
                 $file_name = $file->getClientOriginalName();
-                $file->storeAS('names',$file_name);
+                $file->storeAS('public/images',$file_name);
                 $post_image->post_id = $last_insert_post_id;    
                 $post_image->url = $file_name;
                 $post_image->save();
@@ -131,6 +134,39 @@ class AdminController extends Controller
         $cook_type = config('const');
         $param = ['id' => $id, 'posts' => $posts, 'post_images' => $post_images, 'cook_type' => $cook_type];
         return view('admin.edit', $param);
+    }
+
+    public function update(Request $request){
+        $id = $request->id;
+        $post = Post::find($id);
+        $post->date = $request->date;
+        $post->cook_type = $request->cook_type;
+        $post->comment = $request->comment;
+        $post->save();
+
+        //post_imagesテーブルへの保温
+        if($request->file('file') !== null) {
+            //添付画像が2枚以上だったら1枚ずつ保存する
+            if(is_array($request->file('file'))){
+                $files = $request->file('file');
+                foreach($files as $file){
+                    $post_image = new PostImage;
+                    $file_name = $file->getClientOriginalName();
+                    $file->storeAS('public/images',$file_name);
+                    $post_image->post_id = $id;    
+                    $post_image->url = $file_name;
+                    $post_image->save();
+                }
+            }else{  //添付画像が1枚だけだったら1枚保存する
+                $post_image = new PostImage;
+                $file_name = $file->getClientOriginalName();
+                $file->storeAS('public/images',$file_name);
+                $post_image->post_id = $id;    
+                $post_image->url = $file_name;
+                $post_image->save();
+            }
+
+        return redirect('/admin/edit/'.$id);
     }
 
 
