@@ -133,6 +133,7 @@ class AdminController extends Controller
         
         $cook_type = config('const');
         $param = ['id' => $id, 'posts' => $posts, 'post_images' => $post_images, 'cook_type' => $cook_type];
+        //dump($post_images);
         return view('admin.edit', $param);
     }
 
@@ -165,9 +166,16 @@ class AdminController extends Controller
                 $post_image->url = $file_name;
                 $post_image->save();
             }
-
+        }
         return redirect('/admin/edit/'.$id);
     }
 
+    public function delete_img(Request $request){
+        PostImage::find($request->delete_post_id)->delete();
+        $id = $request->id;
+        return redirect('/admin/edit/'.$id);
+    }
 
 }
+
+
