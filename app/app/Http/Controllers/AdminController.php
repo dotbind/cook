@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\PostImage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use App\Consts;
 
@@ -172,6 +173,7 @@ class AdminController extends Controller
 
     public function delete_img(Request $request){
         PostImage::find($request->delete_post_id)->delete();
+        Storage::disk('public')->delete('/images/'.$request->image_url);
         $id = $request->id;
         return redirect('/admin/edit/'.$id);
     }
