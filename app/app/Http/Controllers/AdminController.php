@@ -133,7 +133,7 @@ class AdminController extends Controller
         
         $cook_type = config('const');
         $param = ['id' => $id, 'posts' => $posts, 'post_images' => $post_images, 'cook_type' => $cook_type];
-        dump($post_images);
+        //dump($post_images);
         return view('admin.edit', $param);
     }
 

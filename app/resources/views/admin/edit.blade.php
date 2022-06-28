@@ -14,12 +14,11 @@
 <form action="/admin/update" method="POST" enctype="multipart/form-data">
     @csrf
 
-    
 	<input type="file" id="file" name="file[]" class="form-control" multiple>
     {{-- {{$post_images->url}} --}}
     @foreach ($post_images as $image)
         <img src="/storage/images/{{$image->url}}" width="180">
-        <button data-delete-id="{{$image->id}}" id="confirm-delete" onclick="deletePost()">削除</button>
+        <button type="button" data-delete-id="{{$image->id}}" onclick="deletePost(this)">削除</button>
     @endforeach
     <input type="date" id="date" name="date" value="{{$posts->date}}">
     <select name="cook_type">
@@ -40,14 +39,13 @@
 </div>
 <form method="post" id="delete_form">
     @csrf
-    <input type="hidden" name="id" value="{{$id}}">
     <input type="hidden" name="delete_post_id" id="delete_post_id" value="" />
+    <input type="hidden" name="id" value="{{$id}}">
 </form>
 @endsection
 <script>
-    function deletePost() {
-          var confirm_delete = document.getElementById('confirm-delete');
-          var postId = confirm_delete.dataset.deleteId; //popupImage()で設定した削除IDを取得
+    function deletePost(obj) {
+          var postId = obj.dataset.deleteId; //popupImage()で設定した削除IDを取得
     
           document.querySelector("#delete_post_id").value = postId;
           document.querySelector("#delete_form").action = "{{ route('admin.delete_img') }}";
